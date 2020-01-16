@@ -21,9 +21,10 @@ COMMON_SRC = \
             common/olc.c \
             common/printf.c \
             common/streambuf.c \
+            common/string_light.c \
             common/time.c \
             common/typeconversion.c \
-            common/string_light.c \
+            common/uvarint.c \
             config/config_eeprom.c \
             config/config_streamer.c \
             config/feature.c \
@@ -37,10 +38,13 @@ COMMON_SRC = \
             drivers/bus_i2c_soft.c \
             drivers/bus_spi.c \
             drivers/display.c \
+            drivers/display_canvas.c \
+            drivers/display_font_metadata.c \
             drivers/exti.c \
             drivers/io.c \
             drivers/io_pca9685.c \
             drivers/light_led.c \
+            drivers/osd.c \
             drivers/resource.c \
             drivers/rx_nrf24l01.c \
             drivers/rx_spi.c \
@@ -93,11 +97,14 @@ COMMON_SRC = \
             flight/servos.c \
             flight/wind_estimator.c \
             flight/gyroanalyse.c \
+            flight/rpm_filter.c \
             io/beeper.c \
-            io/lights.c \
-            io/pwmdriver_i2c.c \
             io/esc_serialshot.c \
+            io/frsky_osd.c \
+            io/osd_dji_hd.c \
+            io/lights.c \
             io/piniobox.c \
+            io/pwmdriver_i2c.c \
             io/serial.c \
             io/serial_4way.c \
             io/serial_4way_avrootloader.c \
@@ -137,6 +144,7 @@ COMMON_SRC = \
             sensors/diagnostics.c \
             sensors/gyro.c \
             sensors/initialisation.c \
+            sensors/esc_sensor.c \
             uav_interconnect/uav_interconnect_bus.c \
             uav_interconnect/uav_interconnect_rangefinder.c \
             blackbox/blackbox.c \
@@ -170,6 +178,7 @@ COMMON_SRC = \
             io/opflow_cxof.c \
             io/opflow_msp.c \
             io/dashboard.c \
+            io/displayport_frsky_osd.c \
             io/displayport_max7456.c \
             io/displayport_msp.c \
             io/displayport_oled.c \
@@ -179,8 +188,11 @@ COMMON_SRC = \
             io/gps_nmea.c \
             io/gps_naza.c \
             io/ledstrip.c \
-            io/osd_hud.c \
             io/osd.c \
+            io/osd_canvas.c \
+            io/osd_common.c \
+            io/osd_grid.c \
+            io/osd_hud.c \
             navigation/navigation.c \
             navigation/navigation_fixedwing.c \
             navigation/navigation_fw_launch.c \
@@ -224,7 +236,8 @@ TARGET_SRC   := $(filter-out $(MCU_EXCLUDES), $(TARGET_SRC))
 ifneq ($(filter ONBOARDFLASH,$(FEATURES)),)
 TARGET_SRC += \
             drivers/flash_m25p16.c \
-            io/flashfs.c
+            io/flashfs.c \
+            $(MSC_SRC)
 endif
 
 ifneq ($(filter SDCARD,$(FEATURES)),)
@@ -234,11 +247,16 @@ TARGET_SRC += \
             drivers/sdcard/sdcard_sdio.c \
             drivers/sdcard/sdcard_standard.c \
             io/asyncfatfs/asyncfatfs.c \
-            io/asyncfatfs/fat_standard.c
+            io/asyncfatfs/fat_standard.c \
+            $(MSC_SRC)
 endif
 
 ifneq ($(filter VCP,$(FEATURES)),)
 TARGET_SRC += $(VCP_SRC)
+endif
+
+ifneq ($(filter MSC,$(FEATURES)),)
+TARGET_SRC += $(MSC_SRC)
 endif
 
 ifneq ($(DSP_LIB),)
