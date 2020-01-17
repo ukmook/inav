@@ -30,8 +30,8 @@ const timerHardware_t timerHardware[] = {
     DEF_TIM(TIM12, CH2, PB15,   TIM_USE_MC_MOTOR |                    TIM_USE_FW_SERVO,   0, 0 ), // S4_OUT
     DEF_TIM(TIM4,  CH4, PB9,    TIM_USE_MC_MOTOR | TIM_USE_MC_SERVO | TIM_USE_FW_SERVO,   0, 0 ), // S5_OUT
     DEF_TIM(TIM4,  CH3, PB8,    TIM_USE_MC_MOTOR | TIM_USE_MC_SERVO | TIM_USE_FW_SERVO,   0, 0 ), // S6_OUT
-    DEF_TIM(TIM3,  CH2, PB5,    TIM_USE_MC_MOTOR | TIM_USE_MC_SERVO | TIM_USE_FW_SERVO,   0, 0 ), // S6_OUT
-    DEF_TIM(TIM3,  CH1, PB4,    TIM_USE_MC_MOTOR | TIM_USE_MC_SERVO | TIM_USE_FW_SERVO,   0, 0 ), // S6_OUT
+    DEF_TIM(TIM3,  CH2, PB5,    TIM_USE_MC_MOTOR | TIM_USE_MC_SERVO | TIM_USE_FW_SERVO,   0, 0 ), // S7_OUT
+    DEF_TIM(TIM3,  CH1, PB4,    TIM_USE_MC_MOTOR | TIM_USE_MC_SERVO | TIM_USE_FW_SERVO,   0, 0 ), // S8_OUT
     DEF_TIM(TIM2,  CH1, PA15,   TIM_USE_LED,                                              0, 0),
 
 };

@@ -18,7 +18,7 @@
 #pragma once
 #define TARGET_BOARD_IDENTIFIER "QRKV"
 
-#define USBD_PRODUCT_STRING "qUarkVF405_8"
+#define USBD_PRODUCT_STRING "qUarkVF405_16"
 #ifdef OPBL
 #define USBD_SERIALNUMBER_STRING "0x8020000"
 #endif
