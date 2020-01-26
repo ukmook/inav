@@ -59,6 +59,9 @@
 #define USE_ACC
 #define USE_ACC_MPU6000
 
+#define ACC_MPU6000_ALIGN       CW90_DEG
+#define GYRO_MPU6000_ALIGN      CW90_DEG
+
 #define MPU6000_SPI_BUS         BUS_SPI2
 #define MPU6000_CS_PIN          PC1
 #define GYRO_INT_EXTI           PC0
