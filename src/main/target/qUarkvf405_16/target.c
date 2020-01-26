@@ -22,7 +22,7 @@
 #include "drivers/timer.h"
 
 const timerHardware_t timerHardware[] = {
-    DEF_TIM(TIM1,  CH3, PA10, TIM_USE_PWM | TIM_USE_PPM,                                0, 0 ), // PPM IN
+    DEF_TIM(TIM1,  CH3, PA10, TIM_USE_PWM | TIM_USE_PPM,                                  0, 0 ), // PPM IN
 
     DEF_TIM(TIM8,  CH2N, PB0,   TIM_USE_MC_MOTOR |                    TIM_USE_FW_MOTOR,   0, 0 ), // S1_OUT
     DEF_TIM(TIM8,  CH3N, PB1,   TIM_USE_MC_MOTOR |                    TIM_USE_FW_MOTOR,   0, 0 ), // S2_OUT
