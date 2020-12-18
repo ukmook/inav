@@ -348,7 +348,7 @@ uint32_t hse_value = HSE_VALUE;
 /* #define DATA_IN_ExtSDRAM */
 #endif /* STM32F427_437x || STM32F429_439xx || STM32F446xx || STM32F469_479xx */
 
-#if defined(STM32F410xx) || defined(STM32F411xE)
+#if defined(STM32F410xx) || defined(STM32F411xE) || defined(STM32F412xx)
 /*!< Uncomment the following line if you need to clock the STM32F410xx/STM32F411xE by HSE Bypass
      through STLINK MCO pin of STM32F103 microcontroller. The frequency cannot be changed
      and is fixed at 8 MHz.
@@ -371,7 +371,7 @@ uint32_t hse_value = HSE_VALUE;
 /******************************************************************************/
 
 /************************* PLL Parameters *************************************/
-#if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F401xx) || defined(STM32F469_479xx) || defined (STM32F446xx) || defined (STM32F410xx) || defined (STM32F411xE)
+#if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F401xx) || defined(STM32F469_479xx) || defined (STM32F446xx) || defined (STM32F410xx) || defined (STM32F411xE) || defined(STM32F412xx)
     #if HSE_VALUE == 24000000
         #define PLL_M   24
     #elif HSE_VALUE == 16000000
@@ -414,7 +414,7 @@ uint32_t hse_value = HSE_VALUE;
 #define PLL_Q      7
 #endif /* STM32F401xx */
 
-#if defined(STM32F410xx) || defined(STM32F411xE)
+#if defined(STM32F410xx) || defined(STM32F411xE) || defined(STM32F412xx)
 #define PLL_N      192
 /* SYSCLK = PLL_VCO / PLL_P */
 #define PLL_P      2
@@ -683,7 +683,7 @@ void SetSysClock(void)
     RCC->CFGR |= RCC_CFGR_PPRE1_DIV2;
 #endif /* STM32F401xx */
 
-#if defined(STM32F410xx) || defined(STM32F411xE)
+#if defined(STM32F410xx) || defined(STM32F411xE) || defined(STM32F412xx)
     /* PCLK2 = HCLK / 2*/
     RCC->CFGR |= RCC_CFGR_PPRE2_DIV1;
 
@@ -726,7 +726,7 @@ void SetSysClock(void)
     FLASH->ACR = FLASH_ACR_PRFTEN | FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_5WS;
 #endif /* STM32F40_41xxx || STM32F427_437x || STM32F429_439xx  || STM32F446xx || STM32F469_479xx */
 
-#if defined(STM32F401xx) || defined(STM32F410xx) || defined(STM32F411xE)
+#if defined(STM32F401xx) || defined(STM32F410xx) || defined(STM32F411xE) || defined(STM32F412xx)
     /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
     FLASH->ACR = FLASH_ACR_PRFTEN | FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_2WS;
 #endif /* STM32F401xx || STM32F410xx || STM32F411xE*/
